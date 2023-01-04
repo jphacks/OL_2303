@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>グラフ</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+  </head>
+  <body>
+    <h1>SIRモデル</h1>
+    <h3>福岡大学 工学部 電子情報工学科</h3>
+    <h3>ネットワークシステム 第２回レポート課題「SIRモデル」</h3>
+    <div class="big-model">
+      <div class="short-model">
+        <canvas id="lineChart"></canvas>
+      </div>
+    </div>
+    <script>
+      const dt = 1; // 時間の刻み幅
+      const beta = 0.4; // 感染率
+      const gamma = 0.2; // 回復率
+
+      // 初期値
+      let n = 10000;
+      let susceptible = 9990;
+      let infected = 10;
+      let recovered = 0;
+
+      // 結果を格納する配列
+      const data = {
+        susceptible: [],
+        infected: [],
+        recovered: [],
+      };
+
+      for (let t = 0; t < 1000; t++) {
+        // 1000回繰り返す
+        const dS = (-beta * susceptible * infected) / n;
+        const dI = (beta * susceptible * infected) / n - gamma * infected;
+        const dR = gamma * infected;
+        susceptible += dS * dt;
+        infected += dI * dt;
+        recovered += dR * dt;
+
+        // 結果を配列に格納
+        data.susceptible.push(susceptible);
+        data.infected.push(infected);
+        data.recovered.push(recovered);
+      }
+
+      const ctx = document.getElementById("lineChart").getContext("2d");
+      // グラフを描画
+      const chart = new Chart(ctx, {
+        type: "line",
+        options: {
+          maintainAspectRatio: false,
+        },
+        data: {
+          labels: Array.from(Array(70), (_, i) => i),
+          datasets: [
+            {
+              label: "S",
+              data: data.susceptible,
+              borderColor: "blue",
+              fill: false,
+            },
+            {
+              label: "I",
+              data: data.infected,
+              borderColor: "red",
+              fill: false,
+            },
+            {
+              label: "R",
+              data: data.recovered,
+              borderColor: "green",
+              fill: false,
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>
