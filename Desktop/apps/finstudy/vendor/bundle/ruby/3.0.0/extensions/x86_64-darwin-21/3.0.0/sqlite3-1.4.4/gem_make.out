@@ -1,0 +1,69 @@
+current directory: /Users/akitoy/Desktop/apps/finstudy/vendor/bundle/ruby/3.0.0/gems/sqlite3-1.4.4/ext/sqlite3
+/Users/akitoy/.rbenv/versions/3.0.4/bin/ruby -I /Users/akitoy/.rbenv/versions/3.0.4/lib/ruby/3.0.0 -r ./siteconf20230731-29730-tr4oie.rb extconf.rb -Wno-implicit-function-declaration
+checking for sqlite3.h... yes
+checking for pthread_create() in -lpthread... yes
+checking for -ldl... yes
+checking for sqlite3_libversion_number() in -lsqlite3... no
+sqlite3 is missing. Try 'brew install sqlite3',
+'yum install sqlite-devel' or 'apt-get install libsqlite3-dev'
+and check your shared library search path (the
+location where your sqlite3 shared library is located).
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/Users/akitoy/.rbenv/versions/3.0.4/bin/$(RUBY_BASE_NAME)
+	--with-sqlcipher
+	--without-sqlcipher
+	--with-sqlcipher
+	--without-sqlcipher
+	--with-sqlite3-config
+	--without-sqlite3-config
+	--with-pkg-config
+	--without-pkg-config
+	--with-sqlcipher
+	--without-sqlcipher
+	--with-sqlite3-dir
+	--without-sqlite3-dir
+	--with-sqlite3-include
+	--without-sqlite3-include=${sqlite3-dir}/include
+	--with-sqlite3-lib
+	--without-sqlite3-lib=${sqlite3-dir}/lib
+	--with-pthread-dir
+	--without-pthread-dir
+	--with-pthread-include
+	--without-pthread-include=${pthread-dir}/include
+	--with-pthread-lib
+	--without-pthread-lib=${pthread-dir}/lib
+	--with-pthreadlib
+	--without-pthreadlib
+	--with-dl-dir
+	--without-dl-dir
+	--with-dl-include
+	--without-dl-include=${dl-dir}/include
+	--with-dl-lib
+	--without-dl-lib=${dl-dir}/lib
+	--with-dllib
+	--without-dllib
+	--with-sqlcipher
+	--without-sqlcipher
+	--with-sqlite3lib
+	--without-sqlite3lib
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /Users/akitoy/Desktop/apps/finstudy/vendor/bundle/ruby/3.0.0/extensions/x86_64-darwin-21/3.0.0/sqlite3-1.4.4/mkmf.log
+
+extconf failed, exit code 1

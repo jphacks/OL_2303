@@ -1,0 +1,111 @@
+<div class="intoro">
+    <h2>診断結果</h2>
+    <p class="yourType">あなたの投資タイプは！？</p>
+</div>
+
+<div class="type-container">
+    <div class="typeSecond-container">
+        <% if @page.question == "111" %>
+            <div class="card">
+                <h3>ハイリスク・ハイリターンタイプ！</h3>
+                <img src="https://github.com/benesse-hackson-2022/fin-study-col/blob/master/app/views/images/high.png?raw=true" class="rounded mx-auto d-block">
+                <p>投資が順調に進んでいる時には大きな利益を生むことができ、不調に陥ると一気に０になってしまう可能性が高い投資タイプ！</p>
+                <p>短期で大きな利益を生むことができて一気に有名資産家に成り上がれるかも？</p>
+                <p>株式投資やFXがおすすめ！</p>
+                <%= link_to "さあ学習を始めよう！", pages_path, class: "btn btn-primary"%>
+            </div>
+
+        <% elsif @page.question == "112" %>
+            <div class="card">
+                <h3>ハイリスク・ハイリターンタイプ！</h3>
+                <img src="https://github.com/benesse-hackson-2022/fin-study-col/blob/master/app/views/images/high.png?raw=true" class="rounded mx-auto d-block">
+                <p>投資が順調に進んでいる時には大きな利益を生むことができ、不調に陥ると一気に０になってしまう可能性が高い投資タイプ！</p>
+                <p>短期で大きな利益を生むことができて一気に有名資産家に成り上がれるかも？</p>
+                <p>株式投資やFXがおすすめ！</p>
+                <%= link_to "さあ学習を始めよう！", pages_path, class: "btn btn-primary"%>
+            </div>
+
+        <% elsif @page.question == "121" %>
+            <div class="card">
+                <h3>ミドルリスク・ミドルリターンタイプ！</h3>
+                <img src="https://github.com/benesse-hackson-2022/fin-study-col/blob/master/app/views/images/hudou.png?raw=true" class="rounded mx-auto d-block">
+                <p>それなりにリスクはあるものの、投資金額が0になる可能性は低めです！</p>
+                <p>利益もほどほどに見込めます！短期決戦にはあまり向いていません！</p>
+                <p>不動産投資がおすすめ！</p>
+                <%= link_to "さあ学習を始めよう！", pages_path, class: "btn btn-primary"%>
+            </div>
+
+        <% elsif @page.question == "212" %>
+            <div class="card">
+                <h3>ミドルリスク・ミドルリターンタイプ！</h3>
+                <img src="https://github.com/benesse-hackson-2022/fin-study-col/blob/master/app/views/images/hudou.png?raw=true" class="rounded mx-auto d-block">
+                <p>それなりにリスクはあるものの、投資金額が0になる可能性は低めです！</p>
+                <p>利益もほどほどに見込めます！短期決戦にはあまり向いていません！</p>
+                <p>不動産投資がおすすめ！</p>
+                <%= link_to "さあ学習を始めよう！", pages_path, class: "btn btn-primary"%>
+            </div>
+
+        <% elsif @page.question == "122" %>
+            <div class="card">
+                <h3>ミドルリスク・ミドルリターンタイプ！</h3>
+                <img src="https://github.com/benesse-hackson-2022/fin-study-col/blob/master/app/views/images/hudou.png?raw=true" class="rounded mx-auto d-block">
+                <p>それなりにリスクはあるものの、投資金額が0になる可能性は低めです！</p>
+                <p>利益もほどほどに見込めます！短期決戦にはあまり向いていません！</p>
+                <p>不動産投資がおすすめ！</p>
+                <%= link_to "さあ学習を始めよう！", pages_path, class: "btn btn-primary"%>
+            </div>
+
+        <% elsif @page.question == "211" %>
+            <div class="card">
+                <h3>ミドルリスク・ミドルリターンタイプ！</h3>
+                <img src="https://github.com/benesse-hackson-2022/fin-study-col/blob/master/app/views/images/hudou.png?raw=true" class="rounded mx-auto d-block">
+                <p>それなりにリスクはあるものの、投資金額が0になる可能性は低めです！</p>
+                <p>利益もほどほどに見込めます！短期決戦にはあまり向いていません！</p>
+                <p>不動産投資がおすすめ！</p>
+                <%= link_to "さあ学習を始めよう！", pages_path, class: "btn btn-primary"%>
+            </div>
+
+        <% elsif @page.question == "221" %>
+            <div class="card">
+                <h3>ローリスク・ローリターンタイプ！</h3>
+                <img src="https://github.com/benesse-hackson-2022/fin-study-col/blob/master/app/views/images/raw.png?raw=true" class="rounded mx-auto d-block">
+                <p>大きな利益はあまり期待できませんが、金額が全てなくなってしまうようなリスクはとても低いです！</p>
+                <p>堅実に資産を形成していきたい人におすすめです！</p>
+                <p>投資信託がおすすめ！</p>
+                <%= link_to "さあ学習を始めよう！", pages_path, class: "btn btn-primary"%>
+            </div>
+
+        <% elsif @page.question == "222" %>
+            <div class="card">
+                <h3>ローリスク・ローリターンタイプ！</h3>
+                <img src="https://github.com/benesse-hackson-2022/fin-study-col/blob/master/app/views/images/raw.png?raw=true" class="rounded mx-auto d-block">
+                <p>大きな利益はあまり期待できませんが、金額が全てなくなってしまうようなリスクはとても低いです！</p>
+                <p>堅実に資産を形成していきたい人におすすめです！</p>
+                <p>投資信託がおすすめ！</p>
+                <%= link_to "さあ学習を始めよう！", pages_path, class: "btn btn-primary"%>
+            </div>
+            <% elsif %>
+            <div class="card">
+                <h3>回答をやり直してください！</h3>
+                <p>一つの質問からは一つしか選択できません</p>
+                <%= link_to "診断へ", new_page_path, class: "btn btn-primary"%>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+<style>
+
+.rounded mx-auto d-block{
+    width: 40%;
+}
+.intoro{
+     text-align: center;
+}
+.type-container{
+    text-align: center;
+}
+.card{
+    background-color: #f2f4f7;
+}
+</style>

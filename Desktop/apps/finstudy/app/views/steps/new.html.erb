@@ -1,0 +1,27 @@
+<h1>おすすめの書籍を紹介！</h1>
+<h3>書籍を登録する！</h3>
+<%= form_for @step, url: steps_path do |f| %>
+    <div class="field">
+        <%= f.label :書名を入力 %> <br>
+        <%= f.text_field :book, class: "form-control", required:true %>
+        <br>
+        <%= f.label :ジャンル %> <br><%= f.select :tipe_second , [["株式", "株式"], ["投資信託", "投資信託"], ["不動産", "不動産"], ["FX", "FX"], ["その他", "その他"]], include_blank: "ジャンル選択", required:true %>
+        <br><br>
+    <div class="field">
+        <%= f.label :書籍の画像 %>
+        <br>
+        <%= f.file_field :image %>
+     </div>
+        <br>
+        <%= f.label :閲覧または読んだ感想 %> <br><%= f.text_area :body_second, :size => 140, class: "form-control", required:true %>
+        <br>
+    </div>
+<%= f.submit "記録する" , class:"btn btn-outline-danger"%>
+<% end %>
+<%= link_to "トップページに戻る", steps_path ,class: "btn btn-primary"%>
+
+<style>
+.form-control{
+    width: 20%;
+}
+</style>

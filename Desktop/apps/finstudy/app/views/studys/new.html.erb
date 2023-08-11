@@ -1,0 +1,11 @@
+<h1>勉強時間記録ページ</h1>
+<h3>勉強時間を記録する</h3>
+<%= form_for @study, url: studys_path do |f| %>
+<div class="field">
+  <%= f.label :種類 %> <br><%= f.select :tipe , [["株式", "株式"], ["投資信託", "投資信託"], ["不動産", "不動産"], ["FX", "FX"], ["その他", "その他"]], include_blank: "選択して下さい", required:true %>
+  <br>
+  <%= f.label :勉強時間を入力（分） %> <br><%= f.number_field :body, :size => 140, required:true %>
+  <br>
+ <%= f.label :内容を入力 %> <br><%= f.text_area :learn, :size => 140, required:true %>
+</div>
+<%= f.submit "記録する", class:"btn btn-outline-danger" %> <% end %> <%= link_to "トップページに戻る", studys_path, class: "btn btn-primary"%>

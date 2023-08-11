@@ -1,0 +1,47 @@
+<% unless current_user == @user %>
+    <% if current_user.following?(@user) %>
+        <%= form_for(current_user.relationships.find_by(follow_id: @user.id), html: { method: :delete }) do |f| %>
+        <%= hidden_field_tag :follow_id, @user.id %>
+        <p><%= @user.nick %></p>
+        <%= f.submit 'フォローを解除する', class: 'btn btn-danger btn-block' %>
+        <% end %>
+    <% else %>
+        <%= form_for(current_user.relationships.build) do |f| %>
+        <%= hidden_field_tag :follow_id, @user.id %>
+        <p><%= @user.nick %></p>
+        <%= f.submit 'フォローする', class: 'btn btn-primary btn-block' %>
+        <% end %>
+    <% end %>
+<% end %>
+
+<% if current_user == @user %>
+
+<h1>マイページ</h1>
+<p>名前 : <%= @user.name %></p>
+<p>ニックネーム : <%= @user.nick %></p>
+<p>メールアドレス : <%= @user.email %></p>
+<p>プロフィール : <%= @user.profile %></p>
+
+  <%= link_to "編集する", edit_user_registration_path, class:"btn btn-outline-success" %>
+
+<%= link_to "記録一覧に戻る", pages_path,class:"btn btn-outline-success" %>
+
+<br><br>
+  <h3>フォローされているユーザー</h3>
+  <% @follower.each do |u| %>
+      <%= link_to u.nick, user_path(u.id),class:"btn btn-outline-primary" %>
+  <% end %>
+
+<br><br>
+  <h3>フォローしているユーザー</h3>
+  <% @following.each do |u| %>
+      <%= link_to u.nick, user_path(u.id) ,class:"btn btn-outline-primary"%>
+  <% end %>
+
+  <h3>投稿した書籍一覧</h3>
+<% @user.steps.each do |t| %>
+  <%= t.book %>
+  <%= image_tag t.image_url, size: "250x200" if t.image? %>
+<% end %>
+
+<% end %>

@@ -1,0 +1,29 @@
+<h1>おすすめの参考書コーナー</h1>
+<h3>参考書一覧</h3>
+<%= link_to "書籍を登録しよう！", new_step_path , class: "btn btn-primary"%>
+
+<div class="container">
+    <div class="row">
+    <% @steps.each do |t| %>
+        <div class="col-sm-4" >
+            <div class="card">
+                <h2><%= t.user.nick %> </h2>
+                <%= t.book %> <br>
+                #<%= t.tipe_second %> <br>
+                <%= t.body_second %> <br>
+                <%= image_tag t.image_url, size: "250x200" if t.image? %>
+                <% if user_signed_in? && current_user.id == t.user_id %>  
+                <%= button_to "削除する",step_path(t.id), method: :delete %>
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+    </div>
+</div>
+
+<style>
+.colo-sm-4.card{
+    background-color: #skyblue;
+}
+
+</style>

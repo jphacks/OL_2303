@@ -1,0 +1,15 @@
+current directory: /Users/akitoy/Desktop/apps/finstudy/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.16.0/ext/bootsnap
+/Users/akitoy/.rbenv/versions/3.0.4/bin/ruby -I /Users/akitoy/.rbenv/versions/3.0.4/lib/ruby/3.0.0 -r ./siteconf20230731-30835-p3f3x5.rb extconf.rb
+creating Makefile
+
+current directory: /Users/akitoy/Desktop/apps/finstudy/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /Users/akitoy/Desktop/apps/finstudy/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/akitoy/Desktop/apps/finstudy/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20230731-30835-2lodpo/bootsnap

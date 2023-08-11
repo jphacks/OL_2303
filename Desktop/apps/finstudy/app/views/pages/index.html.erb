@@ -1,0 +1,9 @@
+<h1>プレミアNOW!!!</h1>
+<%= link_to "診断を始める", new_page_path, class:"btn btn-outline-warning"%>
+
+<% if user_signed_in? %>
+    <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    <%= link_to "マイページへ", user_path(current_user.id) ,class: "btn btn-outline-primary" %>
+<% end %>
+
+

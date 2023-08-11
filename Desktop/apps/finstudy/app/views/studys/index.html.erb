@@ -1,0 +1,23 @@
+<h1>勉強時間記録ページ</h1>
+<h3>Tweet一覧</h3>
+<%= link_to "勉強時間を記録する", new_study_path, class: "btn btn-primary" %>
+<div class="container">
+  <div class="row">
+    <% @studys.each do |t| %>
+      <div class="col-sm-4" >
+        <div class="card">
+          <h3><%= t.user.nick %></h3>
+          <%= t.tipe %> 
+          <br>
+          <%= t.body %>分<br>
+          <%= t.learn %> <br>
+          <% if user_signed_in? && current_user.id == t.user_id %> 
+            <%= button_to "削除する",study_path(t.id), method: :delete %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+

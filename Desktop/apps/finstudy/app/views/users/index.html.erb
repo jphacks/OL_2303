@@ -1,0 +1,10 @@
+<h1><%= link_to "トップに戻る", pages_path, class:"btn btn-outline-primary"%></h1>
+
+<h4>ログインしているユーザー</h4>
+<p><%= @user.nick %></p>
+
+
+<h4>ユーザー情報</h4>
+<% @users.each do |u| %>
+    <%= link_to u.nick, user_path(u.id),class:"btn btn-outline-primary" %>
+<% end %>
