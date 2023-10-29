@@ -32,6 +32,8 @@ xwin-13Bという大規模な言語モデルとトークナイザーというテ
 * Autotokenizer
 * auto-gptq
 * node.js
+* Firebase hosting
+* Firestore
 
 #### デバイス
 * 
