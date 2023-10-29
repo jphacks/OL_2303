@@ -27,7 +27,7 @@ xwin-13Bという大規模な言語モデルとトークナイザーというテ
 ### 活用した技術
 #### API・データ
 * Google Calendar API
-* メールのAPI
+* Gmail API
 
 #### フレームワーク・ライブラリ・モジュール
 * Autotokenizer
