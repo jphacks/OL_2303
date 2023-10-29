@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Google Calendar</title>
+    <script defer src="/__/firebase/7.14.2/firebase-app.js"></script>
+    <script defer src="/__/firebase/7.14.2/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.14.2/firebase-firestore.js"></script>
+    <script defer src="/__/firebase/init.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+      gapi.load("client");
+    </script>
+  </head>
+  <body>
+    <div class="login-status">
+      <input type="text" id="login-status" readonly="readonly" />
+      <button id="login-btn" class="login">ログイン</button>
+      <button id="logout-btn" class="logout">ログアウト</button>
+    </div>
+
+    <button id="authorize-button" style="display: none">認証</button>
+    <div class="form-container">
+      <h2>Googleカレンダー入力フォーム</h2>
+      <form id="event-form" action="#" method="post">
+        <label for="date">日にち:</label>
+        <input type="date" id="date" name="date" required /><br />
+
+        <label for="start-time">開始時間:</label>
+        <input type="time" id="start-time" name="start-time" required /><br />
+
+        <label for="end-time">終了時間:</label>
+        <input type="time" id="end-time" name="end-time" required /><br />
+
+        <label for="event">予定の内容:</label><br />
+        <textarea id="event" name="event" rows="4" required></textarea><br />
+
+        <button type="submit">送信</button>
+      </form>
+    </div>
+
+    <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+    <script src="app.js"></script>
+
+    <script>
+      function login_check() {
+        firebase.auth().onAuthStateChanged(function (user) {
+          if (user) {
+            document.getElementById("login-status").value = "状態：ログイン";
+            document.getElementById("login-btn").disabled = true;
+            document.getElementById("logout-btn").disabled = false;
+          } else {
+            document.getElementById("login-status").value = "状態：未ログイン";
+            document.getElementById("login-btn").disabled = false;
+            document.getElementById("logout-btn").disabled = true;
+          }
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // 初回チェック
+        login_check();
+
+        // ログイン
+        document.getElementById("login-btn").onclick = function () {
+          var provider = new firebase.auth.GoogleAuthProvider();
+          firebase
+            .auth()
+            .signInWithPopup(provider)
+            .then(function (result) {
+              login_check();
+            })
+            .catch(function (error) {
+              login_check();
+            });
+        };
+
+        // ログアウト
+        document.getElementById("logout-btn").onclick = function () {
+          firebase
+            .auth()
+            .signOut()
+            .then(function () {
+              login_check();
+              document.getElementById("calendar-events").style.display = "none";
+            })
+            .catch(function (error) {
+              // エラーハンドリング
+              console.error("ログアウトエラー", error);
+            });
+        };
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("event-form");
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // フォームの入力値を取得
+          const date = document.getElementById("date").value;
+          const startTime = document.getElementById("start-time").value;
+          const endTime = document.getElementById("end-time").value;
+          const eventDescription = document.getElementById("event").value;
+
+          // 以下はサンプルコードで、実際のバックエンドにデータを送信する必要があり
+          console.log("日にち:", date);
+          console.log("開始時間:", startTime);
+          console.log("終了時間:", endTime);
+          console.log("予定の内容:", eventDescription);
+
+          // フォームをリセット
+          form.reset();
+        });
+      });
+    </script>
+  </body>
+</html>
